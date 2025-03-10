@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using Abstract;
     using Abstract.Service;
+    using MageSurvivor.Code.Core.UiService;
     using Sirenix.OdinInspector;
     using UnityEditor;
     using UnityEngine;

@@ -1,24 +1,20 @@
-﻿namespace Code.Core.UiService
+﻿namespace MageSurvivor.Code.Core.UiService
 {
     using System;
     using System.Collections.Generic;
-    using Abstract;
-    using Abstract.Service;
-    using Cysharp.Threading.Tasks;
+    using global::Code.Core.Abstract;
+    using global::Code.Core.Abstract.Service;
+    using global::Code.Core.UiService;
     using UnityEngine;
     using UnityEngine.AddressableAssets;
 
-    public class UiService : Service, IUiService, IDisposable
+    public class UiService : Service, IUiService
     {
         private readonly Dictionary<Type, string> _uiAssets;
 
         public UiService(Dictionary<Type, string> assetCollection)
         {
             _uiAssets = assetCollection;
-        }
-        public void Dispose()
-        {
-            // TODO release managed resources here
         }
 
         public GameObject GetUiPrefab<T>() where T : BaseView
