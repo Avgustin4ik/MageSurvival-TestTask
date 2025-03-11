@@ -1,4 +1,4 @@
-﻿namespace Code.Core.Abstract.Service
+﻿namespace MageSurvivor.Code.Core.Abstract.Service
 {
     //нужен для сериализации исходных данных в редакторе
     public abstract class ServiceSource<T> : ServiceSourceBase where T : Service

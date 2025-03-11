@@ -1,4 +1,4 @@
-﻿namespace Code.Core.Abstract.Service
+﻿namespace MageSurvivor.Code.Core.Abstract.Service
 {
     using UnityEngine;
 

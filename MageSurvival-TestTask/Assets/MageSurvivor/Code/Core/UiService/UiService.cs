@@ -2,8 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
+    using Abstract.Service;
     using global::Code.Core.Abstract;
-    using global::Code.Core.Abstract.Service;
     using global::Code.Core.UiService;
     using UnityEngine;
     using UnityEngine.AddressableAssets;

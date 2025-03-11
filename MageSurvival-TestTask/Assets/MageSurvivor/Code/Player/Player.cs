@@ -1,26 +1,42 @@
 namespace MageSurvivor.Code.Player
 {
-    using System.Collections.Generic;
+    using Abilities;
     using Abilities.Abstract;
+    using Services.InputService;
     using UnityEngine;
 
     public class Player : IPlayer
     {
-        public Player()
+        private readonly IInputService _inputService;
+        private IPlayer _playerImplementation;
+        public AbilityPool Abilities { get; }
+
+        public Player(IInputService inputService)
         {
-            Debug.Log("Player constructor");
-        }
-        public void TakeDamage(int damage)
-        {
-            throw new System.NotImplementedException();
-        }
-        public IEnumerable<IAbility> Abilities { get; }
-        public void SelectAbility(int index)
-        {
-            throw new System.NotImplementedException();
+            _inputService = inputService;
+            Abilities = new AbilityPool();
+            BindControls(inputService);
         }
 
-        public void UseAbility(GameObject target)
+        private void BindControls(IInputService inputService)
+        {
+            inputService.SelectNextAbility += Abilities.GetNextAbility;
+            inputService.SelectPreviousAbility += Abilities.GetPreviousAbility;
+            inputService.UseSelectedAbility += () => Abilities.UseSelectedAbility(null, null);
+        }
+        
+        ~Player()
+        {
+            Debug.Log("Player Destructor");
+            _inputService.SelectNextAbility -= Abilities.GetNextAbility;
+            _inputService.SelectPreviousAbility -= Abilities.GetPreviousAbility;
+            _inputService.UseSelectedAbility -= () => Abilities.UseSelectedAbility(null, null);
+        }
+
+        public void SelectAbility(int index) => Abilities.SelectAbility(index);
+        public void UseAbility(GameObject caster, GameObject target) => Abilities.UseSelectedAbility(caster, target);
+
+        public void TakeDamage(int damage)
         {
             throw new System.NotImplementedException();
         }
