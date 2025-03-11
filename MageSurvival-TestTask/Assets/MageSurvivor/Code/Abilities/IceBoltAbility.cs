@@ -3,7 +3,7 @@
     using Abstract;
     using UnityEngine;
 
-    public class IceBoltAbility : Ability
+    public class IceBoltAbility : Ability<DamageProjectileData>
     {
         public override bool Use(GameObject caster, GameObject target)
         {

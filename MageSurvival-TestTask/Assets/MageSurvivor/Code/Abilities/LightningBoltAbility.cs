@@ -3,7 +3,7 @@
     using Abstract;
     using UnityEngine;
 
-    public class LightningBoltAbility : Ability
+    public class LightningBoltAbility : Ability<DamageProjectileData>
     {
         public override bool Use(GameObject caster, GameObject target)
         {
