@@ -11,7 +11,6 @@
         {
             containerBuilder.AddSingleton(typeof(Player), typeof(IPlayer));
             Debug.Log("GameplayInstaller InstallBindings");
-            
         }
     }
 }
