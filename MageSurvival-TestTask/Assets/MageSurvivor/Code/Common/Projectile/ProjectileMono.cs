@@ -34,6 +34,8 @@ namespace MageSurvivor.Code.Common.Projectile
         {
             _projectile.Destroy();
         }
+
+        public void Lunch(Vector3 transformForward, float dataSpeed) => _projectile.Launch(transformForward,dataSpeed);
     }
     
     public class PoolableMono : MonoBehaviour

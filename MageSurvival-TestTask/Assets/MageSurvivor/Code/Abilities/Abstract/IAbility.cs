@@ -8,6 +8,7 @@
         DamageProjectileData Data { get; }
         public void SetData(DamageProjectileData data);
         public bool Initialized { get; }
-        bool Use(GameObject caster, GameObject target);
+        bool UseAtTarget(GameObject caster, GameObject target);
+        bool Use(GameObject caster, Vector3 direction);
     }
 }

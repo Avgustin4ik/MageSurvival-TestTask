@@ -6,11 +6,5 @@
     [CreateAssetMenu(fileName = "IceBoltAbilitySource", menuName = "MageSurvivor/Ability/Source/IceBolt")]
     public class IceBoltAbilitySource : AbilitySource<IceBoltAbility>
     {
-        public DamageProjectileData ProjectileData;
-
-        public override IAbility CreateAbility(DamageProjectileData projectileData)
-        {
-            return base.CreateAbility(ProjectileData);
-        }
     }
 }

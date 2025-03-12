@@ -7,6 +7,7 @@ namespace MageSurvivor.Code.Player
 
     public interface ICaster
     {
+        void EquipAbility(IAbility ability);
         AbilityPool Abilities { get;}
         void SelectAbility(int index);
         void UseAbility(GameObject caster, GameObject target);

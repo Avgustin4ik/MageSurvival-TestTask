@@ -1,5 +1,6 @@
 ﻿namespace MageSurvivor.Code.Common.Projectile
 {
+    using System;
     using UnityEngine;
 
     public class Projectile : IProjectile
@@ -20,8 +21,19 @@
         //мне не нравится что я буду вызвать это из монобеха. Это можно избежать, вызывая самописный Tick
         //например такой есть в Zenject ITickable либо можно использовать UniRx чтобы обновлять позицию
         //но при использовании UniRx мне не нравится идея создания стрима для каждого снаряда (надо пулить, выглядит ка клишний геморой)
+        public void Launch(Vector3 direction, float speed)
+        {
+            _direction = direction;
+            _speed = speed;
+        }
+
         public void UpdatePosition(float deltaTime)
         {
+            if (_direction == Vector3.zero)
+            {
+                throw new NotImplementedException("Projectile direction is zero");
+            }
+            Debug.Assert(_speed > 0, "Projectile speed is zero");
             Position += _direction * _speed * deltaTime;
         }
 

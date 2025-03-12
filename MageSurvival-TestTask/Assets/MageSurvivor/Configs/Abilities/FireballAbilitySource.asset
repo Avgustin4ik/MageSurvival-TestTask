@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f31a2a1cf8424d8a33c6300b23d589, type: 3}
   m_Name: FireballAbilitySource
   m_EditorClassIdentifier: 
+  Data:
+    Damage: 11
+    Range: 11
+    Speed: 1
+    ProjectilePrefab: {fileID: 6608917678813607322, guid: 88b3e74050178cb4a8433a9a710719bd, type: 3}
+  AbilityType: 

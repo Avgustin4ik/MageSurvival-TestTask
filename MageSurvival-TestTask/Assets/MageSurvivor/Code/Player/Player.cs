@@ -2,39 +2,44 @@ namespace MageSurvivor.Code.Player
 {
     using Abilities;
     using Abilities.Abstract;
-    using Services.InputService;
+    using Services.AbilityService;
     using UnityEngine;
 
     public class Player : IPlayer
     {
-        private readonly IInputService _inputService;
+        private readonly IAbilityService _abilityService;
         private IPlayer _playerImplementation;
+        public void EquipAbility(IAbility ability) => Abilities.Add(ability);
+
         public AbilityPool Abilities { get; }
 
-        public Player(IInputService inputService)
+        // public Player(IAbilityService abilityService)
+        // {
+        //     _abilityService = abilityService;
+        //     // EquipAbility(abilityService.CreateAbility(nameof(FireballAbility)));
+        // }
+
+        public Player()
         {
-            _inputService = inputService;
-            Abilities = new AbilityPool();
-            BindControls(inputService);
         }
 
-        private void BindControls(IInputService inputService)
+
+        //где-то происходит еквип аблок для юнита. Предположим что это происходит в Awake
+        public void Awake()
         {
-            inputService.SelectNextAbility += Abilities.GetNextAbility;
-            inputService.SelectPreviousAbility += Abilities.GetPreviousAbility;
-            inputService.UseSelectedAbility += () => Abilities.UseSelectedAbility(null, null);
+            EquipAbility(_abilityService.CreateAbility(nameof(FireballAbility)));
         }
-        
         ~Player()
         {
             Debug.Log("Player Destructor");
-            _inputService.SelectNextAbility -= Abilities.GetNextAbility;
-            _inputService.SelectPreviousAbility -= Abilities.GetPreviousAbility;
-            _inputService.UseSelectedAbility -= () => Abilities.UseSelectedAbility(null, null);
         }
 
         public void SelectAbility(int index) => Abilities.SelectAbility(index);
-        public void UseAbility(GameObject caster, GameObject target) => Abilities.UseSelectedAbility(caster, target);
+        public void UseAbility(GameObject caster, GameObject target)
+        {
+            throw new System.NotImplementedException();
+        }
+        public void UseAbility(GameObject caster, Vector3 direction) => Abilities.UseSelectedAbility(caster, direction);
 
         public void TakeDamage(int damage)
         {

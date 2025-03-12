@@ -1,0 +1,4 @@
+﻿{
+  "name": "code.services.ability",
+  "references":[ "GUID:d2aeb8b69b2125b4e8d8de0105380313", "GUID:5ac90310cc428b5478e1b304b9b24399" ]
+}

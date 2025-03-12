@@ -1,20 +1,24 @@
 ﻿namespace MageSurvivor.Code.Abilities.Abstract
 {
+    using System;
     using Sources;
     using UnityEngine;
 
     public abstract class AbilitySource : ScriptableObject
     {
-        public abstract IAbility CreateAbility(DamageProjectileData data);
+        public abstract string AbilityType { get; }
+        public DamageProjectileData Data;
+        public abstract IAbility CreateAbility();
     }
     
     
     public class AbilitySource<T> : AbilitySource where T : Ability<DamageProjectileData>, new()
     {
-        public override IAbility CreateAbility(DamageProjectileData data)
+        public override string AbilityType => typeof(T).Name;
+        public override IAbility CreateAbility()
         {
             var ability = new T();
-            ability.SetData(data);
+            ability.SetData(Data);
             return new T();
         }
     }

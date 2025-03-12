@@ -6,16 +6,13 @@ namespace MageSurvivor.Code.Abilities
 
     public class AbilityPool : List<IAbility>
     {
-        public bool UseSelectedAbility(GameObject caster, GameObject target)
+        public bool UseSelectedAbility(GameObject caster, Vector3 direction)
         {
-            return this[SelectedAbilityIndex].Use(caster, target);
+            return this[SelectedAbilityIndex].Use(caster, direction);
         }
         public int SelectedAbilityIndex { get; private set; }
         public AbilityPool()
         {
-            Add(new FireballAbility());
-            Add(new IceBoltAbility());
-            Add(new LightningBoltAbility());
             SelectedAbilityIndex = 0;
         }
         public void SelectAbility(int index)
