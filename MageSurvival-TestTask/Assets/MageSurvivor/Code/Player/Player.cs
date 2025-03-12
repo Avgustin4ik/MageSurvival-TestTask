@@ -9,25 +9,20 @@ namespace MageSurvivor.Code.Player
     {
         private readonly IAbilityService _abilityService;
         private IPlayer _playerImplementation;
-        public void EquipAbility(IAbility ability) => Abilities.Add(ability);
-
-        public AbilityPool Abilities { get; }
-
-        // public Player(IAbilityService abilityService)
-        // {
-        //     _abilityService = abilityService;
-        //     // EquipAbility(abilityService.CreateAbility(nameof(FireballAbility)));
-        // }
-
-        public Player()
+        public void EquipAbility(IAbility ability)
         {
+            Abilities.Add(ability);
         }
 
+        public AbilityPool Abilities { get; private set; }
 
-        //где-то происходит еквип аблок для юнита. Предположим что это происходит в Awake
-        public void Awake()
+        public Player(IAbilityService abilityService)
         {
-            EquipAbility(_abilityService.CreateAbility(nameof(FireballAbility)));
+            Abilities = new AbilityPool();
+            _abilityService = abilityService;
+            EquipAbility(abilityService.CreateAbility(nameof(FireballAbility)));
+            EquipAbility(abilityService.CreateAbility(nameof(IceBoltAbility)));
+            EquipAbility(abilityService.CreateAbility(nameof(LightningBoltAbility)));
         }
         ~Player()
         {

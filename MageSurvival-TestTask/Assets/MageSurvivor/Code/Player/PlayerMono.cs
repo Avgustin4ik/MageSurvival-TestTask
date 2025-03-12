@@ -18,8 +18,17 @@
             _inputService = inputService;
             BindControls();
             Debug.Log("PlayerMono Construct");
-            
         }
+
+        // [Inject]
+        // public void Construct(IPlayer p, IInputService inputService)
+        // {
+        //     _player = p;
+        //     _inputService = inputService;
+        //     Debug.Log("PlayerMono Construct");
+        //
+        // }
+
         private void BindControls()
         {
             _inputService.SelectNextAbility += _player.Abilities.GetNextAbility;
