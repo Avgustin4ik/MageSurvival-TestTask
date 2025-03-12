@@ -19,7 +19,7 @@
         {
             var ability = new T();
             ability.SetData(Data);
-            return new T();
+            return ability;
         }
     }
 }

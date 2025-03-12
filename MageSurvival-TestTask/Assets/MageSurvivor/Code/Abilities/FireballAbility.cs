@@ -10,6 +10,11 @@
         {
             Debug.Log("FireballAbility used");
             //spawn fireball at caster position
+            if (Data == null)
+            {
+                Debug.LogError("Data is null");
+                return false;
+            }
             var projectile = Object.Instantiate<ProjectileMono>(Data.ProjectilePrefab, caster.transform.position, Quaternion.identity);
             //spawn as projectile
             projectile.Lunch(direction, Data.Speed);
