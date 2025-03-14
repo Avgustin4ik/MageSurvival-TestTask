@@ -1,0 +1,4 @@
+﻿{
+  "name": "code.unit",
+  "references":[ "GUID:5ac90310cc428b5478e1b304b9b24399", "GUID:1530a967b84cfb44dbdd5e8a1989764f", "GUID:560b04d1a97f54a4e82edc0cbbb69285", "GUID:50cd8c5774b5411cbbf1a9be6790b385", "GUID:dd73b21424ad4f8689f04a7f443fb8ba" ]
+}

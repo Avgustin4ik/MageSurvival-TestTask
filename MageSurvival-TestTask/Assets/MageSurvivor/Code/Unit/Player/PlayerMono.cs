@@ -1,8 +1,9 @@
-﻿namespace MageSurvivor.Code.Player
+﻿namespace MageSurvivor.Code.Unit.Player
 {
-    using System;
+    using Code.Player;
+    using MageSurvivor.Code.Services.InputService;
     using Reflex.Attributes;
-    using Services.InputService;
+    using Reflex.Enums;
     using UnityEngine;
 
     public class PlayerMono : MonoBehaviour
@@ -10,24 +11,22 @@
         private IPlayer _player;
         public CharacterController characterController;
         private IInputService _inputService;
+        private Transform _cachedTransform;
 
         [Inject]
         public void Construct(IPlayer player, IInputService inputService)
         {
             _player = player;
             _inputService = inputService;
+            _cachedTransform = transform;
             BindControls();
             Debug.Log("PlayerMono Construct");
         }
 
-        // [Inject]
-        // public void Construct(IPlayer p, IInputService inputService)
-        // {
-        //     _player = p;
-        //     _inputService = inputService;
-        //     Debug.Log("PlayerMono Construct");
-        //
-        // }
+        private void Update()
+        {
+            _player.position = _cachedTransform.position;
+        }
 
         private void BindControls()
         {

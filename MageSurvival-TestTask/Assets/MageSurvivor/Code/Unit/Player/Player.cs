@@ -1,14 +1,14 @@
-namespace MageSurvivor.Code.Player
+namespace MageSurvivor.Code.Unit.Player
 {
-    using Abilities;
-    using Abilities.Abstract;
-    using Services.AbilityService;
+    using Code.Player;
+    using MageSurvivor.Code.Abilities;
+    using MageSurvivor.Code.Abilities.Abstract;
+    using MageSurvivor.Code.Services.AbilityService;
     using UnityEngine;
 
-    public class Player : IPlayer
+    public class Player : Unit, IPlayer
     {
         private readonly IAbilityService _abilityService;
-        private IPlayer _playerImplementation;
         public void EquipAbility(IAbility ability)
         {
             Abilities.Add(ability);
@@ -36,7 +36,11 @@ namespace MageSurvivor.Code.Player
         }
         public void UseAbility(GameObject caster, Vector3 direction) => Abilities.UseSelectedAbility(caster, direction);
 
-        public void TakeDamage(int damage)
+        public int Health { get; }
+        public int Armor { get; }
+        public Vector3 position { get; set; }
+
+        public void Die()
         {
             throw new System.NotImplementedException();
         }

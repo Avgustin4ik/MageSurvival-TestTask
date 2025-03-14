@@ -1,8 +1,7 @@
-namespace MageSurvivor.Code.Player
+namespace MageSurvivor.Code.Unit
 {
-    using System.Collections.Generic;
-    using Abilities;
-    using Abilities.Abstract;
+    using MageSurvivor.Code.Abilities;
+    using MageSurvivor.Code.Abilities.Abstract;
     using UnityEngine;
 
     public interface ICaster

@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Default Local Group
   m_GUID: 4ecd67af790ec274b9d211adfbe53432
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 2b3fa13e775524a4e91fb81ee325ce33
+    m_Address: Assets/MageSurvivor/Prefabs/Enemy.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e055c170c3974de4e842175c49e2b01f, type: 2}
   m_SchemaSet:
