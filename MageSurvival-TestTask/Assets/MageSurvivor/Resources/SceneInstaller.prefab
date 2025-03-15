@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f450baf3c07432c88e70cf1dd103855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTransform: {fileID: 0}
+  soldierUnitSource: {fileID: 11400000, guid: e5a38f51b6d41324ca796f82b9f7c0f9, type: 2}

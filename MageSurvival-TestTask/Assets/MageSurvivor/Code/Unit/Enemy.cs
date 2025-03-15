@@ -4,7 +4,7 @@
     using UniRx;
     using UnityEngine;
 
-    public class Enemy : Unit, IAttacker
+    public class Enemy : CharacterUnit, IAttacker
     {
         public int Damage { get; }
 

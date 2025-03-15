@@ -6,7 +6,7 @@ namespace MageSurvivor.Code.Unit.Player
     using MageSurvivor.Code.Services.AbilityService;
     using UnityEngine;
 
-    public class Player : Unit, IPlayer
+    public class Player : CharacterUnit, IPlayer
     {
         private readonly IAbilityService _abilityService;
         public void EquipAbility(IAbility ability)

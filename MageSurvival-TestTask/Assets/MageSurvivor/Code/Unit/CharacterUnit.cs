@@ -2,7 +2,7 @@
 {
     using UnityEngine;
 
-    public abstract class Unit : IDamageable
+    public abstract class CharacterUnit : IDamageable
     {
         private int _health;
         private readonly int _armor;

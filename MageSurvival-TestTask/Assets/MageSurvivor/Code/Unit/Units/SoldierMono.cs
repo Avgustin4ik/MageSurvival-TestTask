@@ -1,32 +1,50 @@
 ﻿namespace MageSurvivor.Code.Unit.Units
 {
     using Code.Player;
+    using Cysharp.Threading.Tasks;
     using Reflex.Attributes;
+    using UnitFactory;
+    using UnitFactory.Abstract;
     using UnityEngine;
     using UnityEngine.AI;
 
     public class SoldierMono : MonoBehaviour
     {
         public NavMeshAgent agent;
-        private Enemy _enemy;
+        private SoldierUnit _enemy;
         private IPlayer _target;
         private Transform _cachedTransform;
 
+        // [Inject]
+        // public void Construct(Enemy enemy, IPlayer target)
+        // {
+        //     _enemy = enemy;
+        //     _target = target;
+        //     _cachedTransform = transform;
+        //     enemy.SetTarget(target);
+        // }
         [Inject]
-        public void Construct(Enemy enemy, IPlayer target)
+        public void Construct(SoldierUnit soldierUnit, IPlayer target)
         {
-            _enemy = enemy;
+            _enemy = soldierUnit;
             _target = target;
             _cachedTransform = transform;
-            enemy.SetTarget(target);
+            Setup(soldierUnit.Config);
+            // soldierUnit.SetTarget(target);
         }
-        
+
+        private async UniTaskVoid Setup(Config soldierUnitConfig)
+        {
+            agent.speed = soldierUnitConfig.MoveSpeed;
+            //setup visual and monobeheviour
+        }
+
         public void Update()
         {
             if (_enemy == null) return;
             
             MoveToEnemy(_target.position);
-            _enemy.SetPosition(_cachedTransform.position);
+            // _enemy.SetPosition(_cachedTransform.position);
         }
         
         public void MoveToEnemy(Vector3 enemy)
