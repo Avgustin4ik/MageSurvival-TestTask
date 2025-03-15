@@ -18,11 +18,9 @@
             containerBuilder.AddSingleton(typeof(Injector));
             containerBuilder.AddSingleton(typeof(PropsFactory));
             
-            // containerBuilder.AddTransient(typeof(CharacterUnitBase), typeof(ICharacterUnit));
             containerBuilder.AddSingleton(typeof(Player), typeof(IPlayer));
             containerBuilder.AddSingleton(playerTransform, typeof(Transform));
             containerBuilder.AddTransient(_ =>soldierUnitSource.CreateUnit());
-            // containerBuilder.AddSingleton(typeof(Enemy));
             Debug.Log("GameplayInstaller InstallBindings");
         }
     }

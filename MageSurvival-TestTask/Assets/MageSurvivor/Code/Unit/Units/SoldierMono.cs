@@ -15,14 +15,6 @@
         private IPlayer _target;
         private Transform _cachedTransform;
 
-        // [Inject]
-        // public void Construct(Enemy enemy, IPlayer target)
-        // {
-        //     _enemy = enemy;
-        //     _target = target;
-        //     _cachedTransform = transform;
-        //     enemy.SetTarget(target);
-        // }
         [Inject]
         public void Construct(SoldierUnit soldierUnit, IPlayer target)
         {

@@ -1,16 +1,18 @@
 ﻿namespace MageSurvivor.Code.Unit
 {
+    using UniRx;
     using UnityEngine;
 
     public abstract class CharacterUnit : IDamageable
     {
-        private int _health;
-        private readonly int _armor;
-        public int Health => _health;
-        public int Armor => _armor;
+        private float _health;
+        private readonly float _armor;
+        public float Health => _health;
+        public float Armor => _armor;
         public Vector3 position { get; set; }
+        public ReactiveProperty<Vector3> postion = new();
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(float damage)
         {
             _health -= damage * Armor;
             if (_health <= 0)

@@ -1,11 +1,18 @@
 namespace MageSurvivor.Code.Unit.UnitFactory.Abstract
 {
-    public class CharacterUnitBase : ICharacterUnit
+    using UnityEngine;
+
+    public class CharacterUnitBase : CharacterUnit, ICharacterUnit
     {
         public Config Config { get; private set;}
-        public void SetConfig(Config config)
+        public virtual void SetConfig(Config config)
         {
             Config = config;
+        }
+        
+        public void SetPosition(Vector3 position)
+        {
+            position = position;
         }
     }
 }

@@ -5,7 +5,9 @@
     public interface IAttacker
     {
         float AttackRange { get; set; }
-        int Damage { get; }
+        float Damage { get; }
         void TryAttack(IDamageable target);
+
+        public void SetTarget(IDamageable target);
     }
 }

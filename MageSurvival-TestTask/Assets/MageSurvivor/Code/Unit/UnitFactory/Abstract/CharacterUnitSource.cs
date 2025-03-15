@@ -2,7 +2,7 @@ namespace MageSurvivor.Code.Unit.UnitFactory.Abstract
 {
     using UnityEngine;
 
-    public abstract class CharacterUnitSource<T> : ScriptableObject where T : CharacterUnitBase, new()
+    public abstract class CharacterUnitSource<T> : ScriptableObject where T : ICharacterUnit, new()
     {
         public Config Config;
         public T CreateUnit()

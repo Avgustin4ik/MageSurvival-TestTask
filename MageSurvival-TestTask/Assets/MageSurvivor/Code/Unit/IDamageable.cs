@@ -4,10 +4,10 @@ namespace MageSurvivor.Code.Unit
 
     public interface IDamageable
     {
-        int Health { get; }
-        int Armor { get; }
+        float Health { get; }
+        float Armor { get; }
         Vector3 position { get; set; }
-        void TakeDamage(int damage);
+        void TakeDamage(float damage);
         
         void Die();
     }
