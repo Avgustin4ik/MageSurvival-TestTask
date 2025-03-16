@@ -16,7 +16,7 @@ MonoBehaviour:
     Health: 11
     Armor: 11
     Damage: 11
-    AttackSpeed: 11
+    AttackSpeed: 0.54
     AttackRange: 1
     MoveSpeed: 8.31
     PrefabReference:
