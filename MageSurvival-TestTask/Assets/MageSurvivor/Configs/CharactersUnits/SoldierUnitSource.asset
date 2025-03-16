@@ -17,7 +17,7 @@ MonoBehaviour:
     Armor: 11
     Damage: 11
     AttackSpeed: 11
-    AttackRange: 11
+    AttackRange: 1
     MoveSpeed: 8.31
     PrefabReference:
       m_AssetGUID: 2b3fa13e775524a4e91fb81ee325ce33

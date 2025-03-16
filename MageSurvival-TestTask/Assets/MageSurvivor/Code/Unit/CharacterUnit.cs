@@ -5,12 +5,12 @@
 
     public abstract class CharacterUnit : IDamageable
     {
+        protected CompositeDisposable Disposables = new CompositeDisposable();
         private float _health;
         private readonly float _armor;
         public float Health => _health;
         public float Armor => _armor;
         public Vector3 position { get; set; }
-        public ReactiveProperty<Vector3> postion = new();
 
         public void TakeDamage(float damage)
         {
@@ -23,6 +23,16 @@
         public void Die()
         {
             Debug.Log("Unit Die");
+        }
+        
+        ~CharacterUnit()
+        {
+            Dispose();
+        }
+        
+        public void Dispose()
+        {
+            Disposables.Dispose();
         }
     }
 }

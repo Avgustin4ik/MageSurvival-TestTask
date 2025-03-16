@@ -9,10 +9,5 @@ namespace MageSurvivor.Code.Unit.UnitFactory.Abstract
         {
             Config = config;
         }
-        
-        public void SetPosition(Vector3 position)
-        {
-            position = position;
-        }
     }
 }
