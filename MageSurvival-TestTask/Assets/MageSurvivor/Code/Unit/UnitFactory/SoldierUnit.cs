@@ -4,6 +4,7 @@ namespace MageSurvivor.Code.Unit.UnitFactory
 
     public class SoldierUnit : AttackerUnit
     {
+        
         public float AttackRange { get; set; }
         public float Damage { get; private set; }
         public override void SetConfig(Config config)

@@ -1,5 +1,6 @@
 namespace MageSurvivor.Code.Unit.UnitFactory.Abstract
 {
+    using UniRx;
     using UnityEngine;
 
     public class CharacterUnitBase : CharacterUnit, ICharacterUnit

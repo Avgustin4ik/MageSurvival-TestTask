@@ -11,6 +11,7 @@
         public float Health => _health;
         public float Armor => _armor;
         public Vector3 position { get; set; }
+        public ReactiveProperty<bool> IsDead = new ReactiveProperty<bool>(false);
 
         public void TakeDamage(float damage)
         {
@@ -23,6 +24,7 @@
         public void Die()
         {
             Debug.Log("Unit Die");
+            IsDead.Value = true;
         }
         
         ~CharacterUnit()

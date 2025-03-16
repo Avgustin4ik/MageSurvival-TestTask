@@ -20,7 +20,6 @@
             Debug.Log("AttackerUnit TryAttack");
             target.TakeDamage(Damage);
             
-            _attackCooldown.Dispose();
             _attackCooldown = Observable.Timer(TimeSpan.FromSeconds(1f/Config.AttackSpeed))
                 .Subscribe(_ => _isAttacking = false)
                 .AddTo(this.Disposables);
