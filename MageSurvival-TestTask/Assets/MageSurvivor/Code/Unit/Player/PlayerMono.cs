@@ -1,33 +1,36 @@
-﻿namespace MageSurvivor.Code.Player
+﻿namespace MageSurvivor.Code.Unit.Player
 {
-    using System;
+    using MageSurvivor.Code.Services.InputService;
     using Reflex.Attributes;
-    using Services.InputService;
+    using UniRx;
+    using UnitFactory.Abstract;
+    using Units;
     using UnityEngine;
 
-    public class PlayerMono : MonoBehaviour
+    public class PlayerMono : CharacterMono
     {
-        private IPlayer _player;
-        public CharacterController characterController;
         private IInputService _inputService;
+        private Player _player;
 
         [Inject]
-        public void Construct(IPlayer player, IInputService inputService)
+        public void Construct(CharacterUnitBase player, IInputService inputService)
         {
-            _player = player;
+            base.Initialize(player);
+            _player = player as Player;
             _inputService = inputService;
             BindControls();
             Debug.Log("PlayerMono Construct");
+            player.IsDead.Subscribe(Die).AddTo(this);
         }
-
-        // [Inject]
-        // public void Construct(IPlayer p, IInputService inputService)
-        // {
-        //     _player = p;
-        //     _inputService = inputService;
-        //     Debug.Log("PlayerMono Construct");
-        //
-        // }
+        
+        private void Die(bool isDead)
+        {
+            if (isDead)
+            {
+                //animate death
+                Destroy(gameObject);
+            }
+        }
 
         private void BindControls()
         {
@@ -41,11 +44,12 @@
             _player.Abilities.UseSelectedAbility(this.gameObject, this.transform.forward);
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
             _inputService.SelectNextAbility -= _player.Abilities.GetNextAbility;
             _inputService.SelectPreviousAbility -= _player.Abilities.GetPreviousAbility;
             _inputService.UseSelectedAbility -= Use;
+            base.OnDestroy();
         }
     }
 }
