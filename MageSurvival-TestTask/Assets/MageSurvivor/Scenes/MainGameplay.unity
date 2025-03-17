@@ -1062,6 +1062,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 846892399855626825, guid: 3bc276a1ff16e6a44a0d281c6e44baf0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1512382659225660919, guid: 3bc276a1ff16e6a44a0d281c6e44baf0, type: 3}
       propertyPath: mainCamera
       value: 
@@ -1195,6 +1199,18 @@ PrefabInstance:
     - target: {fileID: 4143101014815836558, guid: 69c5b8d00f0887940b3ead0e0daa04cd, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557835266307645148, guid: 69c5b8d00f0887940b3ead0e0daa04cd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557835266307645148, guid: 69c5b8d00f0887940b3ead0e0daa04cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557835266307645148, guid: 69c5b8d00f0887940b3ead0e0daa04cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6591844579185509490, guid: 69c5b8d00f0887940b3ead0e0daa04cd, type: 3}
       propertyPath: m_LocalPosition.x

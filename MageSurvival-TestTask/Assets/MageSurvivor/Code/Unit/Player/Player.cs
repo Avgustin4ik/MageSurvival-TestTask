@@ -4,9 +4,10 @@ namespace MageSurvivor.Code.Unit.Player
     using MageSurvivor.Code.Abilities;
     using MageSurvivor.Code.Abilities.Abstract;
     using MageSurvivor.Code.Services.AbilityService;
+    using UnitFactory.Abstract;
     using UnityEngine;
 
-    public class Player : CharacterUnit, IPlayer
+    public class Player : CharacterUnitBase, IPlayer
     {
         private readonly IAbilityService _abilityService;
         public void EquipAbility(IAbility ability)

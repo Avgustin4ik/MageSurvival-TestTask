@@ -1,13 +1,14 @@
 ﻿namespace MageSurvivor.Code.Unit
 {
+    using UnitFactory.Abstract;
     using UnityEngine;
 
     public interface IAttacker
     {
         float AttackRange { get; set; }
         float Damage { get; }
-        void TryAttack(IDamageable target);
+        void TryAttack(CharacterUnitBase target);
 
-        public void SetTarget(IDamageable target);
+        public void SetupTarget(CharacterUnitBase target);
     }
 }

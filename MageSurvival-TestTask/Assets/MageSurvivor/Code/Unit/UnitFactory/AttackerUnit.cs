@@ -12,25 +12,27 @@
         public IDamageable _target { get; set; }
         public float AttackRange { get; set; }
         public float Damage { get; private set; }
-        private IDisposable _attackCooldown;
-        public void TryAttack(IDamageable target)
+        public void TryAttack(CharacterUnitBase target)
         {
             if(_isAttacking) return;
             _isAttacking = true;
             Debug.Log("AttackerUnit TryAttack");
             target.TakeDamage(Damage);
             
-            _attackCooldown = Observable.Timer(TimeSpan.FromSeconds(1f/Config.AttackSpeed))
+            Observable.Timer(TimeSpan.FromSeconds(1f/Config.AttackSpeed))
                 .Subscribe(_ => _isAttacking = false)
                 .AddTo(this.Disposables);
         }
 
-        public void SetTarget(IDamageable target)
+        public void SetupTarget(CharacterUnitBase target)
         {
-            Observable.EveryUpdate()
-                .SkipWhile(x => Vector3.Distance(position, target.position) > 2)
+            
+            _stream = Observable.EveryUpdate()
+                .SkipWhile(x => Vector3.Distance(this.position, target.position) > 2)
                 .Subscribe(_ => TryAttack(target))
                 .AddTo(this.Disposables);
+            
+            target.IsDead.Subscribe(x => { if(x) _stream.Dispose();}).AddTo(this.Disposables);
         }
     }
 }

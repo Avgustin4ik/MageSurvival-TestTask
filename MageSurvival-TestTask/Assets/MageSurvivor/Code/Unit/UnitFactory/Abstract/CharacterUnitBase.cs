@@ -10,5 +10,6 @@ namespace MageSurvivor.Code.Unit.UnitFactory.Abstract
         {
             Config = config;
         }
+        
     }
 }

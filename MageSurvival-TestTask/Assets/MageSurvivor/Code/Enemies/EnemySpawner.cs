@@ -36,19 +36,19 @@
         }
         private async UniTaskVoid SpawnEnemy(AssetReferenceT<GameObject> enemyPrefab, float cooldownSeconds)
         {
-            while (true)
-            {
-                await UniTask.Delay(TimeSpan.FromSeconds(cooldownSeconds));
-                await UniTask
-                    .WaitWhile(()=>_enemyCount >= maxEnemies)
-                    .ContinueWith(() =>
-                    {
-                        var spawnPoint = GetRandomSpawnPoint();
-                        _factory.SpawnInstanceAsync(this.enemyPrefabRef, spawnPoint, Quaternion.identity).Forget();
-                        _enemyCount++;
-                        Debug.DrawLine(mainCamera.transform.position, spawnPoint, Color.red, 5f);
-                    });
-            }
+            var spawnPoint = GetRandomSpawnPoint();
+            _factory.SpawnInstanceAsync(this.enemyPrefabRef, spawnPoint, Quaternion.identity).Forget();
+            _enemyCount++;
+            Debug.DrawLine(mainCamera.transform.position, spawnPoint, Color.red, 5f);
+            // while (true)
+            // {
+            //     await UniTask.Delay(TimeSpan.FromSeconds(cooldownSeconds));
+            //     // await UniTask
+            //     //     .WaitWhile(()=>_enemyCount >= maxEnemies)
+            //     //     .ContinueWith(() =>
+            //     //     {
+            //     //     });
+            // }
         }
 
         private async UniTaskVoid SpawnEnemy(SoldierMono enemyPrefab, float cooldownSeconds)

@@ -3,20 +3,21 @@
     using Code.Player;
     using Reflex.Attributes;
     using UnitFactory;
+    using UnitFactory.Abstract;
     using UnityEngine;
     using UnityEngine.AI;
 
     public class SoldierMono : CharacterMono
     {
         public NavMeshAgent agent;
-        private IPlayer _target;
-
+        private CharacterUnitBase _target;
+        
         [Inject]
-        public void Construct(SoldierUnit soldierUnit, IPlayer target)
+        public void Construct(SoldierUnit soldierUnit, CharacterUnitBase target)
         {
-            Initialize(soldierUnit);
+            base.Initialize(soldierUnit);
             _target = target;
-            soldierUnit.SetTarget(target);
+            soldierUnit.SetupTarget(_target);
         }
         
         private void Die(bool isDead)
@@ -27,13 +28,11 @@
             }
         }
 
-        
-
-        public void Update()
+        protected override void Update()
         {
             if (base.Character == null) return;
             MoveToEnemy(_target.position);
-            this.Character.position = this.CachedTransform.position;
+            base.Update();
         }
         
         public void MoveToEnemy(Vector3 enemy)
@@ -44,6 +43,7 @@
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {
+            if (Character == null || _target == null) return;
             Gizmos.color = Color.red;
             Gizmos.DrawLine(Character.position, _target.position);
 

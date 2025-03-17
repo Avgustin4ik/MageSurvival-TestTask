@@ -17,8 +17,8 @@
         {
             containerBuilder.AddSingleton(typeof(Injector));
             containerBuilder.AddSingleton(typeof(PropsFactory));
-            
-            containerBuilder.AddSingleton(typeof(Player), typeof(IPlayer));
+
+            containerBuilder.AddSingleton(typeof(Player), typeof(CharacterUnitBase));
             containerBuilder.AddSingleton(playerTransform, typeof(Transform));
             containerBuilder.AddTransient(_ =>soldierUnitSource.CreateUnit());
             Debug.Log("GameplayInstaller InstallBindings");

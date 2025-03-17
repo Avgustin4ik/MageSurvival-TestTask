@@ -1,31 +1,35 @@
 ﻿namespace MageSurvivor.Code.Unit.Player
 {
-    using Code.Player;
     using MageSurvivor.Code.Services.InputService;
     using Reflex.Attributes;
-    using Reflex.Enums;
+    using UniRx;
+    using UnitFactory.Abstract;
+    using Units;
     using UnityEngine;
 
-    public class PlayerMono : MonoBehaviour
+    public class PlayerMono : CharacterMono
     {
-        private IPlayer _player;
-        public CharacterController characterController;
         private IInputService _inputService;
-        private Transform _cachedTransform;
+        private Player _player;
 
         [Inject]
-        public void Construct(IPlayer player, IInputService inputService)
+        public void Construct(CharacterUnitBase player, IInputService inputService)
         {
-            _player = player;
+            base.Initialize(player);
+            _player = player as Player;
             _inputService = inputService;
-            _cachedTransform = transform;
             BindControls();
             Debug.Log("PlayerMono Construct");
+            player.IsDead.Subscribe(Die).AddTo(this);
         }
-
-        private void Update()
+        
+        private void Die(bool isDead)
         {
-            _player.position = _cachedTransform.position;
+            if (isDead)
+            {
+                //animate death
+                Destroy(gameObject);
+            }
         }
 
         private void BindControls()
@@ -40,11 +44,12 @@
             _player.Abilities.UseSelectedAbility(this.gameObject, this.transform.forward);
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
             _inputService.SelectNextAbility -= _player.Abilities.GetNextAbility;
             _inputService.SelectPreviousAbility -= _player.Abilities.GetPreviousAbility;
             _inputService.UseSelectedAbility -= Use;
+            base.OnDestroy();
         }
     }
 }
