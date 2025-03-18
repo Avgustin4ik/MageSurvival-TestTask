@@ -33,8 +33,6 @@
             {
                 throw new NotImplementedException("Projectile direction is zero");
             }
-            Debug.Assert(_speed > 0, "Projectile speed is zero");
-            Position += _direction * _speed * deltaTime;
         }
 
 

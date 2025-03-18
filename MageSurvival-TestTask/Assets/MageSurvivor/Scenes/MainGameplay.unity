@@ -1309,6 +1309,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3997968140502121502, guid: 69c5b8d00f0887940b3ead0e0daa04cd, type: 3}
+      propertyPath: _characterController
+      value: 
+      objectReference: {fileID: 4860245245388225258}
     - target: {fileID: 4143101014815836558, guid: 69c5b8d00f0887940b3ead0e0daa04cd, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1376,6 +1380,11 @@ PrefabInstance:
 --- !u!4 &4860245245388225256 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6591844579185509490, guid: 69c5b8d00f0887940b3ead0e0daa04cd, type: 3}
+  m_PrefabInstance: {fileID: 4860245245388225255}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &4860245245388225258 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 9210036761398381870, guid: 69c5b8d00f0887940b3ead0e0daa04cd, type: 3}
   m_PrefabInstance: {fileID: 4860245245388225255}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807

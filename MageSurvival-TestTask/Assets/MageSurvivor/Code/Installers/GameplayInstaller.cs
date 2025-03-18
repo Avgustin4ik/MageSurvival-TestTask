@@ -1,5 +1,6 @@
 ﻿namespace MageSurvivor.Code.Installers
 {
+    using Common.Projectile;
     using global::Code.Core;
     using global::Code.Core.Factories;
     using Player;
@@ -17,7 +18,7 @@
         {
             containerBuilder.AddSingleton(typeof(Injector));
             containerBuilder.AddSingleton(typeof(PropsFactory));
-
+            containerBuilder.AddTransient(typeof(Projectile), typeof(IProjectile));
             containerBuilder.AddSingleton(typeof(Player), typeof(CharacterUnitBase));
             containerBuilder.AddSingleton(playerTransform, typeof(Transform));
             containerBuilder.AddTransient(_ =>soldierUnitSource.CreateUnit());

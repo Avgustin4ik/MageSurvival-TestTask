@@ -17,7 +17,7 @@ namespace Reflex.Core
         internal List<Container> Children { get; } = new();
         internal Dictionary<Type, List<IResolver>> ResolversByContract { get; }
         internal DisposableCollection Disposables { get; }
-        
+
         internal Container(string name, Container parent, Dictionary<Type, List<IResolver>> resolversByContract, DisposableCollection disposables)
         {
             Diagnosis.RegisterBuildCallSite(this);

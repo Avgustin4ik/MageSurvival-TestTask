@@ -15,9 +15,11 @@
                 Debug.LogError("Data is null");
                 return false;
             }
-            var projectile = Object.Instantiate<ProjectileMono>(Data.ProjectilePrefab, caster.transform.position, Quaternion.identity);
+            var projectile = Data.ProjectilePrefab as ProjectileMono;
+            var p = projectile.Spawn<ProjectileMono>(caster.transform.position, Quaternion.LookRotation(direction));
+            // var projectile = Object.Instantiate<ProjectileMono>(Data.ProjectilePrefab, caster.transform.position, Quaternion.LookRotation(direction));
             //spawn as projectile
-            projectile.Lunch(direction, Data.Speed);
+            p.LaunchForward(Data.Speed);
             //spawn as poolable object
             
             return true;

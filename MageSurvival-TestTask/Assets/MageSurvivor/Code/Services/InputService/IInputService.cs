@@ -30,7 +30,7 @@ namespace MageSurvivor.Code.Services.InputService
             _keyBinding.Move.action.performed += ctx => OnMove(ctx.ReadValue<Vector2>());
             _keyBinding.NextAbilityAction.action.performed += _ => OnSelectNextAbility();
             _keyBinding.PreviousAbilityAction.action.performed += _ => OnSelectPreviousAbility();
-            // _keyBinding.UseAbilityAction.action.performed += _ => OnUseSelectedAbility();
+            _keyBinding.UseAbilityAction.action.performed += _ => OnUseSelectedAbility();
         }
         
         ~InputService()
@@ -39,7 +39,7 @@ namespace MageSurvivor.Code.Services.InputService
 
             _keyBinding.NextAbilityAction.action.performed -= _ => OnSelectNextAbility();
             _keyBinding.PreviousAbilityAction.action.performed -= _ => OnSelectPreviousAbility();
-            // _keyBinding.UseAbilityAction.action.performed -= _ => OnUseSelectedAbility();
+            _keyBinding.UseAbilityAction.action.performed -= _ => OnUseSelectedAbility();
             _keyBinding.Move.action.canceled-= ctx => OnMove(Vector2.zero);
             _keyBinding.Move.action.performed -= ctx => OnMove(ctx.ReadValue<Vector2>());
         }

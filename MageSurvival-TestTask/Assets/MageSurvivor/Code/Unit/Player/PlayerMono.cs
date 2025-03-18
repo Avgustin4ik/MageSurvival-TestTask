@@ -11,7 +11,7 @@
     {
         private IInputService _inputService;
         private Player _player;
-        private CharacterController _characterController;
+        public CharacterController _characterController;
 
         [Inject]
         public void Construct(CharacterUnitBase player, IInputService inputService)
