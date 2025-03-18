@@ -23,7 +23,7 @@
         }
         protected virtual void Awake()
         {
-            InitializePool();
+            // InitializePool();
         }
 
         private void InitializePool()
@@ -69,6 +69,7 @@
 
         public void Release()
         {
+            _myPool ??= Pools[GetType()];
             _myPool.Release(this);
         }
 
@@ -84,7 +85,7 @@
 
         private void OnDestroyPooledObject(PooledMonoBehaviour obj)
         {
-            Destroy(obj.gameObject);
+            Destroy(obj?.gameObject);
         }
 
         private void Prewarm(int count)
