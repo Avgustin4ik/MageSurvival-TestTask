@@ -1,5 +1,6 @@
 ﻿namespace MageSurvivor.Code.Unit.Units
 {
+    using System;
     using Code.Player;
     using Reflex.Attributes;
     using UnitFactory;
@@ -11,6 +12,7 @@
     {
         public NavMeshAgent agent;
         private CharacterUnitBase _target;
+        public static int count = 0;
         
         [Inject]
         public void Construct(SoldierUnit soldierUnit, CharacterUnitBase target)
@@ -18,6 +20,7 @@
             base.Initialize(soldierUnit);
             _target = target;
             soldierUnit.SetupTarget(_target);
+            count++;
         }
         
         private void Die(bool isDead)
@@ -60,8 +63,7 @@
         private void OnDestroy()
         {
             Character?.Dispose();
+            count--;
         }
-        
-        
     }
 }

@@ -21,10 +21,6 @@
                 pool.Value.Clear();
             }
         }
-        protected virtual void Awake()
-        {
-            // InitializePool();
-        }
 
         private void InitializePool()
         {
@@ -40,7 +36,6 @@
             );
             Pools[type] = _myPool;
 
-            // Prewarm пула
             Prewarm(prewarmCount);
         }
 

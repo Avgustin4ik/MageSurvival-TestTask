@@ -1,10 +1,8 @@
 ﻿namespace MageSurvivor.Code.Enemies
 {
-    using System;
     using Cysharp.Threading.Tasks;
     using global::Code.Core.Factories;
     using Reflex.Attributes;
-    using Unit.Units;
     using UnityEngine;
     using UnityEngine.AddressableAssets;
     using Random = UnityEngine.Random;
@@ -12,12 +10,10 @@
     {
         public Camera mainCamera;
         public float spawnOffset = 1f;
-        public SoldierMono enemyPrefab;
         public AssetReferenceT<GameObject> enemyPrefabRef;
-        public float spawnCooldown = 1f;
-        public Transform groundPlane;
+        public AssetReferenceT<GameObject> enemyPrefabRef2;
+        public AssetReferenceT<GameObject> enemyPrefabRef3;
         public LayerMask layerMask;
-        public int maxEnemies = 1;
         
         private int _enemyCount;
         private PropsFactory _factory;
@@ -30,43 +26,7 @@
 
         public void Awake()
         {
-            //Если камера будет изменяться во время игры, например FOV, то нужно будет пересчитать это в GetRandomSpawnPoint
-            SpawnEnemy(enemyPrefabRef, spawnCooldown).Forget();
             _enemyCount = 0;
-        }
-        private async UniTaskVoid SpawnEnemy(AssetReferenceT<GameObject> enemyPrefab, float cooldownSeconds)
-        {
-            var spawnPoint = GetRandomSpawnPoint();
-            _factory.SpawnInstanceAsync(this.enemyPrefabRef, spawnPoint, Quaternion.identity).Forget();
-            _enemyCount++;
-            Debug.DrawLine(mainCamera.transform.position, spawnPoint, Color.red, 5f);
-            // while (true)
-            // {
-            //     await UniTask.Delay(TimeSpan.FromSeconds(cooldownSeconds));
-            //     // await UniTask
-            //     //     .WaitWhile(()=>_enemyCount >= maxEnemies)
-            //     //     .ContinueWith(() =>
-            //     //     {
-            //     //     });
-            // }
-        }
-
-        private async UniTaskVoid SpawnEnemy(SoldierMono enemyPrefab, float cooldownSeconds)
-        {
-            while (true)
-            {
-                    await UniTask.Delay(TimeSpan.FromSeconds(cooldownSeconds));
-                    await UniTask
-                        .WaitWhile(()=>_enemyCount >= maxEnemies)
-                        .ContinueWith(() =>
-                        {
-                            var spawnPoint = GetRandomSpawnPoint();
-                            
-                            var soldierMono = Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
-                            _enemyCount++;
-                            Debug.DrawLine(mainCamera.transform.position, spawnPoint, Color.red, 5f);
-                        });
-            }
         }
         
         public Vector3 GetRandomSpawnPoint()
@@ -134,6 +94,13 @@
             Debug.DrawLine(frustumCorners[2], frustumCorners[3], Color.green, 5f);
             Debug.DrawLine(frustumCorners[3], frustumCorners[0], Color.green, 5f);
             return frustumCorners;
+        }
+
+        public async UniTaskVoid SpawnRandomEnemy()
+        {
+            Vector3 spawnPoint = GetRandomSpawnPoint();
+            AssetReferenceT<GameObject> enemyPrefab = enemyPrefabRef; //todo 
+            _factory.SpawnInstanceAsync(enemyPrefab, spawnPoint, Quaternion.identity);
         }
     }
 }

@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69c5b8d00f0887940b3ead0e0daa04cd
+    m_Address: Assets/MageSurvivor/Prefabs/Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e055c170c3974de4e842175c49e2b01f, type: 2}
   m_SchemaSet:
