@@ -1,5 +1,6 @@
 ﻿namespace MageSurvivor.Code.Unit.Player
 {
+    using Common;
     using MageSurvivor.Code.Services.InputService;
     using Reflex.Attributes;
     using UniRx;
@@ -14,9 +15,9 @@
         public CharacterController _characterController;
         
         [Inject]
-        public void Construct(CharacterUnitBase player, IInputService inputService)
+        public void Construct(CharacterUnitBase player, IInputService inputService, DamageEventBus damageEventBus)
         {
-            base.Initialize(player);
+            base.Initialize(player, damageEventBus);
             _player = player as Player;
             _inputService = inputService;
             BindControls();

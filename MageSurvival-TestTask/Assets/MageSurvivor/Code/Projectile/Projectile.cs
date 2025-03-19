@@ -10,6 +10,12 @@
         public Vector3 Position { get; private set; }
         private Vector3 _direction;
         private float _speed;
+        private readonly DamageEventBus _damageEventBus;
+
+        public Projectile(DamageEventBus damageEventBus)
+        {
+             _damageEventBus = damageEventBus;
+        }
 
         public void Destroy()
         {
@@ -17,11 +23,8 @@
 
         public void Hit(GameObject otherGameObject)
         {
-            if(otherGameObject.TryGetComponent(out IDamagable damageable))
-            {
-                damageable.TakeDamage(Damage);
-            }
-            throw new System.NotImplementedException($"{this.GetType().Name} hit {otherGameObject.name}");
+            Debug.Log($"{this.GetType().Name} hit {otherGameObject.name} + {otherGameObject.GetInstanceID()}");
+            _damageEventBus.Publish(new DamageEventData(null, otherGameObject, Damage));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿namespace MageSurvivor.Code.Unit.Units
 {
+    using Common;
     using Reflex.Attributes;
     using UnitFactory;
     using UnitFactory.Abstract;
@@ -13,22 +14,14 @@
         public static int count = 0;
         
         [Inject]
-        public void Construct(SoldierUnit soldierUnit, CharacterUnitBase target)
+        public void Construct(SoldierUnit soldierUnit, CharacterUnitBase target, DamageEventBus damageEventBus)
         {
-            base.Initialize(soldierUnit);
+            base.Initialize(soldierUnit, damageEventBus);
             _target = target;
             soldierUnit.SetupTarget(_target);
             count++;
         }
         
-        private void Die(bool isDead)
-        {
-            if (isDead)
-            {
-                Destroy(gameObject);
-            }
-        }
-
         protected override void Update()
         {
             if (base.Character == null) return;
@@ -60,8 +53,8 @@
 
         private void OnDestroy()
         {
-            Character?.Dispose();
             count--;
+            base.OnDestroy();
         }
     }
 }
