@@ -2,6 +2,7 @@
 {
     using System;
     using Abstract;
+    using Common;
     using UniRx;
     using UnityEngine;
 
@@ -9,7 +10,7 @@
     {
         private IDisposable _stream;
         private bool _isAttacking;
-        public IDamageable _target { get; set; }
+        public IDamagable _target { get; set; }
         public float AttackRange { get; set; }
         public float Damage { get; private set; }
         public void TryAttack(CharacterUnitBase target)

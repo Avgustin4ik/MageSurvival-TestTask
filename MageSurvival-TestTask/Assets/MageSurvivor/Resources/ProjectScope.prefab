@@ -53,6 +53,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3293971511315243719}
     m_Modifications:
+    - target: {fileID: 2058728120209830807, guid: 989ef0b02b3b8cf4d84a9365aef4ab1e, type: 3}
+      propertyPath: serviceSources.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058728120209830807, guid: 989ef0b02b3b8cf4d84a9365aef4ab1e, type: 3}
+      propertyPath: 'serviceSources.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 104f132eeed876d40949ddb208f93546, type: 2}
     - target: {fileID: 3008279467250800666, guid: 989ef0b02b3b8cf4d84a9365aef4ab1e, type: 3}
       propertyPath: m_Name
       value: ServicesInstaller

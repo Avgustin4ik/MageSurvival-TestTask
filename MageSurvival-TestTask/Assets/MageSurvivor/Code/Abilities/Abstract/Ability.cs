@@ -1,9 +1,7 @@
 ﻿namespace MageSurvivor.Code.Abilities.Abstract
 {
     using System;
-    using global::Code.Core.Factories;
     using JetBrains.Annotations;
-    using Sources;
     using UnityEngine;
 
     public abstract class Ability<T> : IAbility where T : DamageProjectileData

@@ -2,8 +2,8 @@ namespace MageSurvivor.Code.Services.InputService
 {
     using Core.Abstract.Service;
     using UnityEngine;
-
-    [CreateAssetMenu(menuName = "ServiceSource/InputService")]
+    
+    [CreateAssetMenu(fileName = "InputServiceSource", menuName = "MageSurvivor/Services/InputServiceSource")]
     public class InputServiceSource : ServiceSource<InputService>
     {
         public KeyBinding KeyBinding;

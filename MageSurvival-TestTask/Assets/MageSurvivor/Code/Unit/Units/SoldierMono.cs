@@ -1,7 +1,5 @@
 ﻿namespace MageSurvivor.Code.Unit.Units
 {
-    using System;
-    using Code.Player;
     using Reflex.Attributes;
     using UnitFactory;
     using UnitFactory.Abstract;

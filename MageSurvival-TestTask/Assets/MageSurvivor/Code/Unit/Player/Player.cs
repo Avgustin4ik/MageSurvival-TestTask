@@ -1,6 +1,5 @@
 namespace MageSurvivor.Code.Unit.Player
 {
-    using Code.Player;
     using MageSurvivor.Code.Abilities;
     using MageSurvivor.Code.Abilities.Abstract;
     using MageSurvivor.Code.Services.AbilityService;

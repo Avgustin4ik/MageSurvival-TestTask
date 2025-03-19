@@ -1,9 +1,8 @@
 ﻿namespace MageSurvivor.Code.Installers
 {
-    using Common.Projectile;
     using global::Code.Core;
     using global::Code.Core.Factories;
-    using Player;
+    using Projectile;
     using Reflex.Core;
     using Unit.Player;
     using Unit.UnitFactory;

@@ -3,6 +3,7 @@
     using Cysharp.Threading.Tasks;
     using global::Code.Core.Factories;
     using Reflex.Attributes;
+    using Services.UnitService;
     using UnityEngine;
     using UnityEngine.AddressableAssets;
     using Random = UnityEngine.Random;
@@ -17,10 +18,13 @@
         
         private int _enemyCount;
         private PropsFactory _factory;
+        private IUnitService _service;
 
         [Inject]
-        public void Construct(PropsFactory propsFactory)
+        public void Construct(PropsFactory propsFactory, IUnitService unitService)
         {
+            
+            _service = unitService;
             _factory = propsFactory;
         }
 
@@ -99,7 +103,7 @@
         public async UniTaskVoid SpawnRandomEnemy()
         {
             Vector3 spawnPoint = GetRandomSpawnPoint();
-            AssetReferenceT<GameObject> enemyPrefab = enemyPrefabRef; //todo 
+            AssetReferenceT<GameObject> enemyPrefab = _service.GetRandomEnemyUnitPrefab(); 
             _factory.SpawnInstanceAsync(enemyPrefab, spawnPoint, Quaternion.identity);
         }
     }

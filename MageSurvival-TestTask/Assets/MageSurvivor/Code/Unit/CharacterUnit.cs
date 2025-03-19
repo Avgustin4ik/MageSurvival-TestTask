@@ -1,9 +1,10 @@
 ﻿namespace MageSurvivor.Code.Unit
 {
+    using Common;
     using UniRx;
     using UnityEngine;
 
-    public abstract class CharacterUnit : IDamageable
+    public abstract class CharacterUnit : IDamagable
     {
         protected CompositeDisposable Disposables = new CompositeDisposable();
         private float _health;

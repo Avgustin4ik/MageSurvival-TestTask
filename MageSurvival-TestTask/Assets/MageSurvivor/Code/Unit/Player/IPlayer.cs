@@ -1,9 +1,9 @@
-namespace MageSurvivor.Code.Player
+namespace MageSurvivor.Code.Unit.Player
 {
-    using Unit;
-    using UnityEngine;
+    using MageSurvivor.Code.Common;
+    using MageSurvivor.Code.Unit;
 
-    public interface IPlayer : ICaster, IDamageable 
+    public interface IPlayer : ICaster, IDamagable 
     {
     }
 }

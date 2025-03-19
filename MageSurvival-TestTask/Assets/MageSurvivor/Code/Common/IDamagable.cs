@@ -1,8 +1,8 @@
-namespace MageSurvivor.Code.Unit
+namespace MageSurvivor.Code.Common
 {
     using UnityEngine;
 
-    public interface IDamageable
+    public interface IDamagable
     {
         float Health { get; }
         float Armor { get; }
