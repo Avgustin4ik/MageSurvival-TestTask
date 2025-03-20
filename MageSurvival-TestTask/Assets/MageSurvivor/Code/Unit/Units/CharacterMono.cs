@@ -1,31 +1,34 @@
 ﻿namespace MageSurvivor.Code.Unit.Units
 {
-    using System;
     using Common;
     using Reflex.Attributes;
     using UniRx;
     using UnitFactory.Abstract;
     using UnityEngine;
-    using Object = System.Object;
 
     public abstract class CharacterMono : MonoBehaviour
     {
         protected Transform CachedTransform;
-        public CharacterUnitBase Character;
+        protected CharacterUnitBase Character;
         protected bool Initialized;
         private DamageEventBus _eventBus;
 
-        public virtual void Initialize(CharacterUnitBase character, DamageEventBus damageEventBus)
+        [Inject]
+        public void Construct(CharacterUnitBase character, DamageEventBus damageEventBus)
         {
-            _eventBus = damageEventBus;
             Character = character;
+            _eventBus = damageEventBus;
+            _eventBus.OnDamageEvent += DealDamage;
+            character.IsDead.Subscribe(Kill).AddTo(this);
+            Initialize();
+        }
+
+        protected void Initialize()
+        {
             Character.position = transform.position;
             CachedTransform = transform;
-            
             Setup(Character.Config);
-            character.IsDead.Subscribe(Kill).AddTo(this);
             Initialized = true;
-            _eventBus.OnDamageEvent += DealDamage;
         }
         
         public virtual void Kill(bool isDead)
@@ -44,10 +47,7 @@
             Character.TakeDamage(obj.Damage);
         }
 
-        public virtual void Setup(Config config)
-        {
-            Character.SetConfig(config);
-        }
+        public virtual void Setup(Config config) => Character.SetConfig(config);
 
         protected virtual void Update()
         {

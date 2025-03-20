@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 4ecd67af790ec274b9d211adfbe53432
   m_SerializeEntries:
+  - m_GUID: 0eac95f6c03202d4f9b6a9b17cb3ca6a
+    m_Address: Assets/MageSurvivor/Prefabs/Enemy Big.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b3fa13e775524a4e91fb81ee325ce33
     m_Address: Assets/MageSurvivor/Prefabs/Enemy.prefab
     m_ReadOnly: 0
@@ -22,6 +27,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 69c5b8d00f0887940b3ead0e0daa04cd
     m_Address: Assets/MageSurvivor/Prefabs/Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e050e58a516270d4e98b497d7c3799e1
+    m_Address: Assets/MageSurvivor/Prefabs/Enemy Fast.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

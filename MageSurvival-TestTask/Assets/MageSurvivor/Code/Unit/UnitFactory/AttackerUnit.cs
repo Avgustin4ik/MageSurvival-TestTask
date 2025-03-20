@@ -25,7 +25,7 @@
                 .AddTo(this.Disposables);
         }
 
-        public void SetupTarget(CharacterUnitBase target)
+        public void SetTarget(CharacterUnitBase target)
         {
             
             _stream = Observable.EveryUpdate()

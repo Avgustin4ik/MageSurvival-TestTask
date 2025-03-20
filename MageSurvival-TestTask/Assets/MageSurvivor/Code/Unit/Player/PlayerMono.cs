@@ -10,28 +10,19 @@
 
     public class PlayerMono : CharacterMono
     {
+        public CharacterController _characterController;
         private IInputService _inputService;
         private Player _player;
-        public CharacterController _characterController;
+        private Vector2 _movementDirection = Vector2.zero;
         
-        [Inject]
+        [Inject]    
         public void Construct(CharacterUnitBase player, IInputService inputService, DamageEventBus damageEventBus)
         {
-            base.Initialize(player, damageEventBus);
+            base.Construct(player, damageEventBus);
             _player = player as Player;
             _inputService = inputService;
             BindControls();
             Debug.Log("PlayerMono Construct");
-            player.IsDead.Subscribe(Die).AddTo(this);
-        }
-
-        private void Die(bool isDead)
-        {
-            if (isDead)
-            {
-                //animate death
-                Destroy(gameObject);
-            }
         }
 
         private void BindControls()
@@ -76,7 +67,6 @@
             this.CachedTransform.Rotate(Vector3.up, rotationAroundY * 100 * Time.deltaTime);
         }
 
-        private Vector2 _movementDirection = Vector2.zero;
         private void SetDirection(Vector2 axis)
         {
             _movementDirection = axis;

@@ -14,11 +14,12 @@
         public static int count = 0;
         
         [Inject]
-        public void Construct(SoldierUnit soldierUnit, CharacterUnitBase target, DamageEventBus damageEventBus)
+        public void Construct(SoldierUnit soldierUnit, DamageEventBus damageEventBus, CharacterUnitBase target)
         {
-            base.Initialize(soldierUnit, damageEventBus);
+            base.Construct(soldierUnit, damageEventBus);
             _target = target;
-            soldierUnit.SetupTarget(_target);
+            soldierUnit.SetTarget(_target);
+            agent.speed = soldierUnit.Config.MoveSpeed;
             count++;
         }
         

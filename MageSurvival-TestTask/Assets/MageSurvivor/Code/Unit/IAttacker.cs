@@ -9,6 +9,6 @@
         float Damage { get; }
         void TryAttack(CharacterUnitBase target);
 
-        public void SetupTarget(CharacterUnitBase target);
+        public void SetTarget(CharacterUnitBase target);
     }
 }

@@ -8,7 +8,9 @@ namespace MageSurvivor.Code.Unit.UnitFactory.Abstract
     public class Config
     {
         public int Health;
-        public int Armor;
+        [Range(0f,1f)]
+        public float Armor;
+        
         public int Damage;
         public float AttackSpeed;
         public float AttackRange;

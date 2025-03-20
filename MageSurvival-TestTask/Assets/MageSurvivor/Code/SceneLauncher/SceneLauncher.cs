@@ -32,10 +32,10 @@
         {
             SpawnPlayer();
             SoldierMono.count = 0;
-            RunEnemySpawner(enemiesLimit, intervalInSeconds);
+            RunEnemySpawner(enemiesLimit, intervalInSeconds).Forget();
         }
         
-        private void RunEnemySpawner(int maxEnemiesAtTime, float interval)
+        private async UniTaskVoid RunEnemySpawner(int maxEnemiesAtTime, float interval)
         {
             _stream = Observable
                 .Timer(TimeSpan.Zero, TimeSpan.FromSeconds(interval)) // Периодический таймер

@@ -11,9 +11,6 @@
     {
         public Camera mainCamera;
         public float spawnOffset = 1f;
-        public AssetReferenceT<GameObject> enemyPrefabRef;
-        public AssetReferenceT<GameObject> enemyPrefabRef2;
-        public AssetReferenceT<GameObject> enemyPrefabRef3;
         public LayerMask layerMask;
         
         private int _enemyCount;
