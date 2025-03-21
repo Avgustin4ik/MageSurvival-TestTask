@@ -16,10 +16,10 @@
         private Vector2 _movementDirection = Vector2.zero;
         
         [Inject]    
-        public void Construct(Player player, DamageEventBus damageEventBus)
+        public void Construct(Player player)
         {
             _player = player;
-            base.Construct(player, damageEventBus);
+            base.Construct(player);
             BindControls();
             Debug.Log("PlayerMono Construct");
         }
@@ -63,7 +63,7 @@
         private void Rotate(float rotationAroundY)
         {
             if(rotationAroundY == 0) return;
-            this.CachedTransform.Rotate(Vector3.up, rotationAroundY * Time.deltaTime * _player.Config.RotationSpeed);
+            this.CachedTransform.Rotate(Vector3.up, rotationAroundY *_player.Config.RotationSpeed * Time.deltaTime );
         }
 
         private void SetDirection(Vector2 axis)

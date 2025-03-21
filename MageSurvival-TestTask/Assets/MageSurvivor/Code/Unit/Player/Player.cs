@@ -32,7 +32,6 @@ namespace MageSurvivor.Code.Unit.Player
 
         public int Health { get; }
         public int Armor { get; }
-        public Vector3 position { get; set; }
 
         public void Die()
         {

@@ -8,9 +8,9 @@
     public class BigUnitMono : SoldierMono
     {
         [Inject]
-        public void Construct(BigUnit bigUnit, DamageEventBus damageEventBus)
+        public void Construct(BigUnit bigUnit)
         {
-            base.Construct(bigUnit, damageEventBus);
+            base.Construct(bigUnit);
             Debug.Log("BigUnitMono Construct");
         }
     }

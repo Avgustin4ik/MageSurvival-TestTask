@@ -11,13 +11,11 @@
         protected Transform CachedTransform;
         protected CharacterUnitBase Character;
         protected bool Initialized;
-        private DamageEventBus _eventBus;
+        [Inject] protected DamageEventBus _eventBus;
 
-        [Inject]
-        public void Construct(CharacterUnitBase character, DamageEventBus damageEventBus)
+        protected void Construct(CharacterUnitBase character)
         {
             Character = character;
-            _eventBus = damageEventBus;
             _eventBus.OnDamageEvent += DealDamage;
             character.IsDead.Subscribe(Kill).AddTo(this);
             Initialize();

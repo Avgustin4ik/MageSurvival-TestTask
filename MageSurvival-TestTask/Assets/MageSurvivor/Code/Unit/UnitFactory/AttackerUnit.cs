@@ -6,7 +6,7 @@
     using UniRx;
     using UnityEngine;
 
-    public class AttackerUnit : CharacterUnitBase, IAttacker
+    public abstract class AttackerUnit : CharacterUnitBase, IAttacker
     {
         private IDisposable _stream;
         private bool _isAttacking;

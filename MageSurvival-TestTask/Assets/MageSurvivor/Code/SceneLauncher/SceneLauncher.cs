@@ -7,6 +7,7 @@
     using Enemies;
     using global::Code.Core.Factories;
     using Reflex.Attributes;
+    using Reflex.Extensions;
     using Services.AbilityService;
     using UniRx;
     using Unit.Player;
@@ -61,6 +62,7 @@
         private async UniTaskVoid SpawnPlayer()
         {
             await _propsFactory.SpawnInstanceAsync(playerPrefab, playerSpawnPoint.position, playerSpawnPoint.rotation);
+            
             _player.EquipAbility(_abilityService.CreateAbility(nameof(FireballAbility)));
             _player.EquipAbility(_abilityService.CreateAbility(nameof(IceBoltAbility)));
             _player.EquipAbility(_abilityService.CreateAbility(nameof(LightningBoltAbility)));

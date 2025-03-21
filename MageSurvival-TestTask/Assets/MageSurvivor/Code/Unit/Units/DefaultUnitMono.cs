@@ -8,9 +8,9 @@
     public class DefaultUnitMono : SoldierMono
     {
         [Inject]
-        public void Construct(DefaultUnit defaultUnit, DamageEventBus damageEventBus, Player player)
+        public void Construct(DefaultUnit defaultUnit)
         {
-            base.Construct(defaultUnit, damageEventBus);
+            base.Construct(defaultUnit);
             Debug.Log("DefaultUnitMono Construct");
         }
     }

@@ -14,10 +14,9 @@
         public static int count = 0;
         [Inject] public Player _targetPlayer;
         
-        [Inject]
-        public void Construct(AttackerUnit unit, DamageEventBus damageEventBus)
+        protected void Construct(AttackerUnit unit)
         {
-            base.Construct(unit, damageEventBus);
+            base.Construct(unit);
             unit.SetTarget(_targetPlayer);
             agent.speed = unit.Config.MoveSpeed;
             Debug.Log("SoldierMono Construct. Speed: " + agent.speed);

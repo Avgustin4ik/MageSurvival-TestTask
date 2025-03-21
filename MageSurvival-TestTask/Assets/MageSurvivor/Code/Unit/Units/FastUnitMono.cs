@@ -9,9 +9,9 @@
     public class FastUnitMono : SoldierMono
     {
         [Inject]
-        public void Construct(FastUnit fastUnit, DamageEventBus damageEventBus)
+        public void Construct(FastUnit fastUnit)
         {
-            base.Construct(fastUnit, damageEventBus);
+            base.Construct(fastUnit);
             Debug.Log("FastUnitMono Construct");
         }
     }
