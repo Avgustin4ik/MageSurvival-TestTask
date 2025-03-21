@@ -36,9 +36,8 @@
         private void Awake()
         {
             SpawnPlayer();
-
             SoldierMono.count = 0;
-            // RunEnemySpawner(enemiesLimit, intervalInSeconds).Forget();
+            RunEnemySpawner(enemiesLimit, intervalInSeconds).Forget();
         }
         
         private async UniTaskVoid RunEnemySpawner(int maxEnemiesAtTime, float interval)

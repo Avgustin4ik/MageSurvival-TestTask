@@ -15,17 +15,19 @@
         public CharacterUnitSource<Player> playerUnitSource;
         public CharacterUnitSource<DefaultUnit> defaultUnitSource;
         public CharacterUnitSource<BigUnit> bigUnitSource;
-        public CharacterUnitSource<FastUnit> smallUnitSource;
+        public CharacterUnitSource<FastUnit> fastUnitSource;
         public void InstallBindings(ContainerBuilder containerBuilder)
         {
             containerBuilder.AddSingleton(typeof(Injector));
             containerBuilder.AddSingleton(typeof(PropsFactory));
             containerBuilder.AddTransient(typeof(Projectile), typeof(IProjectile));
             
-            containerBuilder.AddSingleton(_ =>playerUnitSource.CreateUnit(), typeof(Player), typeof(CharacterUnitBase));
-            containerBuilder.AddTransient(_ =>defaultUnitSource.CreateUnit(), typeof(DefaultUnit), typeof(CharacterUnitBase));
-            containerBuilder.AddTransient(_ =>bigUnitSource.CreateUnit() , typeof(BigUnit), typeof(CharacterUnitBase));
-            containerBuilder.AddTransient(_ =>smallUnitSource.CreateUnit() , typeof(FastUnit), typeof(CharacterUnitBase));
+            containerBuilder.AddSingleton(_ =>playerUnitSource.CreateUnit(), typeof(Player));
+            
+            containerBuilder.AddTransient(_ =>defaultUnitSource.CreateUnit(), typeof(DefaultUnit));
+            containerBuilder.AddTransient(_ =>bigUnitSource.CreateUnit() , typeof(BigUnit));
+            containerBuilder.AddTransient(_ =>fastUnitSource.CreateUnit() , typeof(FastUnit));
+            
             Debug.Log("GameplayInstaller InstallBindings");
         }
     }

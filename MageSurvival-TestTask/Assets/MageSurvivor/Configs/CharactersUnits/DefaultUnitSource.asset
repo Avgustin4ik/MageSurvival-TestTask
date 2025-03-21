@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: DefaultUnitSource
   m_EditorClassIdentifier: 
   Config:
-    Health: 12
-    Armor: 0.255
-    Damage: 3
-    AttackSpeed: 0.54
+    Health: 1
+    Armor: 0
+    Damage: 1
+    AttackSpeed: 1
     AttackRange: 1
-    MoveSpeed: 4
+    MoveSpeed: 3
+    RotationSpeed: 4
     PrefabReference:
       m_AssetGUID: 2b3fa13e775524a4e91fb81ee325ce33
       m_SubObjectName: 

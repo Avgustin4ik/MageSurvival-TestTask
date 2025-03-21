@@ -13,7 +13,6 @@
             _injector = injector;
             //todo добавить инъекцию зависимостей
         }
-        
         public virtual async UniTask<GameObject> SpawnInstanceAsync(AssetReference assetReference, Vector3 position = default, Quaternion rotation = default)
         {
             var task = Addressables.LoadAssetAsync<GameObject>(assetReference);

@@ -57,7 +57,8 @@
         protected virtual void OnDestroy()
         {
             Debug.Log("CharacterMono OnDestroy");
-            _eventBus.OnDamageEvent -= DealDamage;
+            if(_eventBus != null)
+                _eventBus.OnDamageEvent -= DealDamage;
             Character?.Dispose();
         }
     }
