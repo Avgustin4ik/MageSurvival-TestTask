@@ -2,28 +2,22 @@ namespace MageSurvivor.Code.Unit.Player
 {
     using MageSurvivor.Code.Abilities;
     using MageSurvivor.Code.Abilities.Abstract;
-    using MageSurvivor.Code.Services.AbilityService;
     using UnitFactory.Abstract;
     using UnityEngine;
 
     public class Player : CharacterUnitBase, IPlayer
     {
-        private readonly IAbilityService _abilityService;
         public void EquipAbility(IAbility ability)
         {
             Abilities.Add(ability);
         }
-
-        public AbilityPool Abilities { get; private set; }
-
-        public Player(IAbilityService abilityService)
+        
+        public Player()
         {
             Abilities = new AbilityPool();
-            _abilityService = abilityService;
-            EquipAbility(abilityService.CreateAbility(nameof(FireballAbility)));
-            EquipAbility(abilityService.CreateAbility(nameof(IceBoltAbility)));
-            EquipAbility(abilityService.CreateAbility(nameof(LightningBoltAbility)));
         }
+        
+        public AbilityPool Abilities { get; private set; }
         ~Player()
         {
             Debug.Log("Player Destructor");

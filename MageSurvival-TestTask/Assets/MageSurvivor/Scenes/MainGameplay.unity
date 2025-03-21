@@ -1229,6 +1229,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 618299069303858327, guid: 361b63ee52a56034aae95e7b12dbc241, type: 3}
+      propertyPath: playerUnitSource
+      value: 
+      objectReference: {fileID: 11400000, guid: afb85bd49e7078b4d953178bd7ab6c3c, type: 2}
+    - target: {fileID: 618299069303858327, guid: 361b63ee52a56034aae95e7b12dbc241, type: 3}
       propertyPath: Sources.Array.size
       value: 1
       objectReference: {fileID: 0}

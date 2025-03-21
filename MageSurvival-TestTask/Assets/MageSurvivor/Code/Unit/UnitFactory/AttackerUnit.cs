@@ -18,8 +18,7 @@
             if(_isAttacking) return;
             _isAttacking = true;
             Debug.Log("AttackerUnit TryAttack");
-            target.TakeDamage(Damage);
-            
+            // target.TakeDamage(Damage);
             Observable.Timer(TimeSpan.FromSeconds(1f/Config.AttackSpeed))
                 .Subscribe(_ => _isAttacking = false)
                 .AddTo(this.Disposables);

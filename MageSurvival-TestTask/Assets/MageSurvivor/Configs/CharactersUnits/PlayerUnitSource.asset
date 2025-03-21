@@ -9,18 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 644cc9062a674852b33bf7c6902021aa, type: 3}
-  m_Name: PlayerSource
+  m_Script: {fileID: 11500000, guid: dcc9504ba84d4e55bd9cdbc9c9dd18e4, type: 3}
+  m_Name: PlayerUnitSource
   m_EditorClassIdentifier: 
   Config:
     Health: 55
-    Armor: 0.556
-    Damage: 10
-    AttackSpeed: 0.54
+    Armor: 0.475
+    Damage: 0
+    AttackSpeed: 0.08
     AttackRange: 1
-    MoveSpeed: 8.31
+    MoveSpeed: 6
     PrefabReference:
-      m_AssetGUID: 2b3fa13e775524a4e91fb81ee325ce33
+      m_AssetGUID: 69c5b8d00f0887940b3ead0e0daa04cd
       m_SubObjectName: 
       m_SubObjectGUID: 
       m_SubObjectType: 

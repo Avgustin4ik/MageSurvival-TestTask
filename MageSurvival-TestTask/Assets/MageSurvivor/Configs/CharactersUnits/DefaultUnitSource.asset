@@ -18,7 +18,7 @@ MonoBehaviour:
     Damage: 3
     AttackSpeed: 0.54
     AttackRange: 1
-    MoveSpeed: 3
+    MoveSpeed: 4
     PrefabReference:
       m_AssetGUID: 2b3fa13e775524a4e91fb81ee325ce33
       m_SubObjectName: 

@@ -45,4 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
+  playerUnitSource: {fileID: 11400000, guid: afb85bd49e7078b4d953178bd7ab6c3c, type: 2}
   soldierUnitSource: {fileID: 11400000, guid: e5a38f51b6d41324ca796f82b9f7c0f9, type: 2}
+  bigUnitSource: {fileID: 11400000, guid: d7f601b301d86f9498b1dc7380ef42e8, type: 2}
+  smallUnitSource: {fileID: 11400000, guid: 90ad7433a4d3bbc4d8b8f2ef5e6c94fa, type: 2}

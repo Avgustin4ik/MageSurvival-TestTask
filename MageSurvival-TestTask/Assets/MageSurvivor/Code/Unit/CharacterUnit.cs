@@ -1,11 +1,13 @@
 ﻿namespace MageSurvivor.Code.Unit
 {
     using Common;
+    using Reflex.Attributes;
     using UniRx;
     using UnityEngine;
 
     public abstract class CharacterUnit : IDamagable
     {
+        [Inject] protected DamageEventBus DamageEventBus;
         protected CompositeDisposable Disposables = new CompositeDisposable();
         private float _health;
         private readonly float _armor;

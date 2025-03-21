@@ -1,20 +1,21 @@
 ﻿namespace MageSurvivor.Code.Unit.Units
 {
     using Common;
+    using Player;
     using Reflex.Attributes;
     using UnitFactory;
     using UnitFactory.Abstract;
     using UnityEngine;
     using UnityEngine.AI;
 
-    public class SoldierMono : CharacterMono
+    public abstract class SoldierMono : CharacterMono
     {
         public NavMeshAgent agent;
         private CharacterUnitBase _target;
         public static int count = 0;
         
         [Inject]
-        public void Construct(SoldierUnit soldierUnit, DamageEventBus damageEventBus, CharacterUnitBase target)
+        public void Construct(AttackerUnit soldierUnit, DamageEventBus damageEventBus, Player target)
         {
             base.Construct(soldierUnit, damageEventBus);
             _target = target;
@@ -26,6 +27,7 @@
         protected override void Update()
         {
             if (base.Character == null) return;
+            if(_target == null) return;
             MoveToEnemy(_target.position);
             base.Update();
         }

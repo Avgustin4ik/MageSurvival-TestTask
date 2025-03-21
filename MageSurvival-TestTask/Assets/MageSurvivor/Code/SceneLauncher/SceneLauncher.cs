@@ -1,11 +1,15 @@
 ﻿namespace MageSurvivor.Code.SceneLauncher
 {
     using System;
+    using Abilities;
+    using Abilities.Abstract;
     using Cysharp.Threading.Tasks;
     using Enemies;
     using global::Code.Core.Factories;
     using Reflex.Attributes;
+    using Services.AbilityService;
     using UniRx;
+    using Unit.Player;
     using Unit.Units;
     using UnityEngine;
     using UnityEngine.AddressableAssets;
@@ -19,20 +23,22 @@
         public Transform playerSpawnPoint;
         public EnemySpawner enemySpawner;
         private PropsFactory _propsFactory;
-        
         private IDisposable _stream;
-
+        private IAbilityService _abilityService;
+        [Inject] private Player _player;
+        
         [Inject]
-        public void Construct(PropsFactory propsFactory)
+        public void Construct(PropsFactory propsFactory, IAbilityService abilityService)
         {
+            _abilityService = abilityService;
             _propsFactory = propsFactory;
         }
-
         private void Awake()
         {
             SpawnPlayer();
+
             SoldierMono.count = 0;
-            RunEnemySpawner(enemiesLimit, intervalInSeconds).Forget();
+            // RunEnemySpawner(enemiesLimit, intervalInSeconds).Forget();
         }
         
         private async UniTaskVoid RunEnemySpawner(int maxEnemiesAtTime, float interval)
@@ -52,10 +58,13 @@
         {
             _stream?.Dispose();
         }
-
-        private void SpawnPlayer()
+        
+        private async UniTaskVoid SpawnPlayer()
         {
-            _propsFactory.SpawnInstanceAsync(playerPrefab, playerSpawnPoint.position, playerSpawnPoint.rotation);
+            await _propsFactory.SpawnInstanceAsync(playerPrefab, playerSpawnPoint.position, playerSpawnPoint.rotation);
+            _player.EquipAbility(_abilityService.CreateAbility(nameof(FireballAbility)));
+            _player.EquipAbility(_abilityService.CreateAbility(nameof(IceBoltAbility)));
+            _player.EquipAbility(_abilityService.CreateAbility(nameof(LightningBoltAbility)));
         }
     }
 }

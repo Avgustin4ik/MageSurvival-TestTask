@@ -11,20 +11,19 @@
     public class PlayerMono : CharacterMono
     {
         public CharacterController _characterController;
-        private IInputService _inputService;
+        [Inject] private IInputService _inputService;
         private Player _player;
         private Vector2 _movementDirection = Vector2.zero;
         
         [Inject]    
-        public void Construct(CharacterUnitBase player, IInputService inputService, DamageEventBus damageEventBus)
+        public void Construct(Player player, DamageEventBus damageEventBus)
         {
             base.Construct(player, damageEventBus);
             _player = player as Player;
-            _inputService = inputService;
             BindControls();
             Debug.Log("PlayerMono Construct");
         }
-
+        
         private void BindControls()
         {
             _inputService.Move += SetDirection;

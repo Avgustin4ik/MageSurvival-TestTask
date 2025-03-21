@@ -13,6 +13,5 @@ namespace MageSurvivor.Code.Unit.UnitFactory
             Damage = config.Damage;
             base.SetConfig(config);
         }
-
     }
 }
