@@ -15,6 +15,7 @@ namespace MageSurvivor.Code.Unit.UnitFactory.Abstract
         public float AttackSpeed;
         public float AttackRange;
         public float MoveSpeed;
+        public float RotationSpeed;
         public AssetReferenceT<GameObject> PrefabReference;
     }
 }

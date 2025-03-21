@@ -19,6 +19,7 @@ MonoBehaviour:
     AttackSpeed: 0.08
     AttackRange: 1
     MoveSpeed: 6
+    RotationSpeed: 200
     PrefabReference:
       m_AssetGUID: 69c5b8d00f0887940b3ead0e0daa04cd
       m_SubObjectName: 

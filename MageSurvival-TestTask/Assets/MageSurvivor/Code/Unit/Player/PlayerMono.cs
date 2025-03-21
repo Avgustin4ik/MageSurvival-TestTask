@@ -18,8 +18,8 @@
         [Inject]    
         public void Construct(Player player, DamageEventBus damageEventBus)
         {
+            _player = player;
             base.Construct(player, damageEventBus);
-            _player = player as Player;
             BindControls();
             Debug.Log("PlayerMono Construct");
         }
@@ -57,13 +57,13 @@
         {
             if(y == 0) return;
             _characterController.Move((y > 0 ? CachedTransform.forward : -CachedTransform.forward) *
-                                      (1 * Time.deltaTime));
+                                      (1 * Time.deltaTime * _player.Config.MoveSpeed));
         }
 
         private void Rotate(float rotationAroundY)
         {
             if(rotationAroundY == 0) return;
-            this.CachedTransform.Rotate(Vector3.up, rotationAroundY * 100 * Time.deltaTime);
+            this.CachedTransform.Rotate(Vector3.up, rotationAroundY * Time.deltaTime * _player.Config.RotationSpeed);
         }
 
         private void SetDirection(Vector2 axis)
