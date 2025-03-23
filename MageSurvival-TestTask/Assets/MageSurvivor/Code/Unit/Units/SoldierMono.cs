@@ -13,11 +13,13 @@
         public NavMeshAgent agent;
         public static int count = 0;
         [Inject] public Player _targetPlayer;
-        
+        private AttackerUnit _attackerCharacter;
+
         protected void Construct(AttackerUnit unit)
         {
             base.Construct(unit);
             unit.SetTarget(_targetPlayer);
+            _attackerCharacter = unit;
             agent.speed = unit.Config.MoveSpeed;
             Debug.Log("SoldierMono Construct. Speed: " + agent.speed);
             count++;

@@ -1,5 +1,6 @@
 ﻿namespace MageSurvivor.Code.Unit.Units
 {
+    using System;
     using Common;
     using Reflex.Attributes;
     using UniRx;
@@ -59,5 +60,16 @@
                 _eventBus.OnDamageEvent -= DealDamage;
             Character?.Dispose();
         }
+
+#if UNITY_EDITOR
+        private void OnDrawGizmos()
+        {
+            if (Character == null) return;
+            Vector3 labelPosition = Character.position + Vector3.up * 2; // Adjust the height as needed
+            GUIStyle style = new GUIStyle();
+            style.normal.textColor = Color.white;
+            UnityEditor.Handles.Label(labelPosition, $"HP: {Character.Health:F2}", style);
+        }
+#endif
     }
 }

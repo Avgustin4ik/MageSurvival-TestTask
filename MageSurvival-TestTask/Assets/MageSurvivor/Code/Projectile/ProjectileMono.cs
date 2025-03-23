@@ -1,5 +1,6 @@
 namespace MageSurvivor.Code.Projectile
 {
+    using Common;
     using MageSurvivor.Code.Core.Pool;
     using Reflex.Attributes;
     using UnityEngine;
@@ -23,7 +24,6 @@ namespace MageSurvivor.Code.Projectile
         }
         private void OnTriggerEnter(Collider other)
         {
-            var target = other.gameObject;
             _projectile.Hit(other.gameObject);
         }
         

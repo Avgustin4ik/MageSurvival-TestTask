@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Config:
     Health: 1
-    Armor: 0
-    Damage: 1
+    Armor: 0.053
+    Damage: 3
     AttackSpeed: 1
     AttackRange: 1
     MoveSpeed: 3

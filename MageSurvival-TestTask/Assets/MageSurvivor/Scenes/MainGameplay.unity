@@ -1127,7 +1127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2342e8b881e486ab96927461208d669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesLimit: 3
+  enemiesLimit: 10
   intervalInSeconds: 1
   playerPrefab:
     m_AssetGUID: 69c5b8d00f0887940b3ead0e0daa04cd

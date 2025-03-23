@@ -9,6 +9,13 @@ namespace MageSurvivor.Code.Unit.UnitFactory.Abstract
         public virtual void SetConfig(Config config)
         {
             Config = config;
+            base.Health = config.Health;
+            base.Armor = config.Armor;
+            base.Speed = config.MoveSpeed;
+            base.Damage = config.Damage;
+            base.AttackRange = config.AttackRange;
+            base.AttackSpeed = config.AttackSpeed;
+
         }
         
     }

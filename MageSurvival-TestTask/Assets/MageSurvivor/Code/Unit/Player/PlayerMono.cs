@@ -1,10 +1,7 @@
 ﻿namespace MageSurvivor.Code.Unit.Player
 {
-    using Common;
     using MageSurvivor.Code.Services.InputService;
     using Reflex.Attributes;
-    using UniRx;
-    using UnitFactory.Abstract;
     using Units;
     using UnityEngine;
 

@@ -15,10 +15,11 @@ MonoBehaviour:
   Config:
     Health: 4
     Armor: 0.033
-    Damage: 1
+    Damage: 3
     AttackSpeed: 0.21
     AttackRange: 1
     MoveSpeed: 8
+    RotationSpeed: 0
     PrefabReference:
       m_AssetGUID: e050e58a516270d4e98b497d7c3799e1
       m_SubObjectName: 
