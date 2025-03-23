@@ -1,6 +1,5 @@
 namespace MageSurvivor.Code.Projectile
 {
-    using Abilities;
     using MageSurvivor.Code.Core.Pool;
     using Reflex.Attributes;
     using UnityEngine;

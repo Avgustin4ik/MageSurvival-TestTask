@@ -1,6 +1,7 @@
 ﻿namespace MageSurvivor.Code.Abilities.Abstract
 {
     using System;
+    using Projectile;
     using Sources;
     using UnityEngine;
 

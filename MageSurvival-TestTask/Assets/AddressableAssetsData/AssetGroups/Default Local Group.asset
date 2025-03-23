@@ -25,8 +25,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5aae9ee71e5670f41b7f09b809639033
+    m_Address: Assets/MageSurvivor/Prefabs/Projectile LightnigBolt.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 69c5b8d00f0887940b3ead0e0daa04cd
     m_Address: Assets/MageSurvivor/Prefabs/Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88b3e74050178cb4a8433a9a710719bd
+    m_Address: Assets/MageSurvivor/Prefabs/Projectile.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b40c7cdbc5e59d0458e25dfcd6ef5240
+    m_Address: Assets/MageSurvivor/Prefabs/Projectile IceBolt.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

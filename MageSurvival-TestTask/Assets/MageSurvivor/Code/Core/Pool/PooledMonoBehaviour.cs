@@ -1,5 +1,6 @@
 ﻿namespace MageSurvivor.Code.Core.Pool
 {
+    using System;
     using UnityEngine;
     using UnityEngine.Pool;
     using System.Collections.Generic;
@@ -8,8 +9,7 @@
     {
         [SerializeField] private int prewarmCount = 10;
         
-        private static readonly Dictionary<System.Type, ObjectPool<PooledMonoBehaviour>> Pools 
-            = new Dictionary<System.Type, ObjectPool<PooledMonoBehaviour>>();
+        private static Dictionary<System.Type, ObjectPool<PooledMonoBehaviour>> Pools = new();
 
         private ObjectPool<PooledMonoBehaviour> _myPool;
 
@@ -20,6 +20,7 @@
             {
                 pool.Value.Clear();
             }
+            GC.Collect();
         }
 
         private void InitializePool()
@@ -70,17 +71,20 @@
 
         private void OnGet(PooledMonoBehaviour obj)
         {
+            if (obj == null || obj.Equals(null)) return;
             obj.gameObject.SetActive(true);
         }
 
         private void OnRelease(PooledMonoBehaviour obj)
         {
+            if (obj == null || obj.Equals(null)) return;
             obj.gameObject.SetActive(false);
         }
 
         private void OnDestroyPooledObject(PooledMonoBehaviour obj)
         {
-            Destroy(obj?.gameObject);
+            if (obj == null || obj.Equals(null)) return;
+            Destroy(obj.gameObject);
         }
 
         private void Prewarm(int count)

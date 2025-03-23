@@ -2,6 +2,7 @@
 {
     using System;
     using JetBrains.Annotations;
+    using Projectile;
     using UnityEngine;
 
     public abstract class Ability<T> : IAbility where T : DamageProjectileData

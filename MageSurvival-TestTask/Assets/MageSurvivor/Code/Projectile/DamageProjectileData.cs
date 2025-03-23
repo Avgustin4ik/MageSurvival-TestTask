@@ -1,7 +1,6 @@
-namespace MageSurvivor.Code.Abilities
+namespace MageSurvivor.Code.Projectile
 {
     using System;
-    using MageSurvivor.Code.Projectile;
 
     [Serializable]
     public class DamageProjectileData : GeneralAbilityData

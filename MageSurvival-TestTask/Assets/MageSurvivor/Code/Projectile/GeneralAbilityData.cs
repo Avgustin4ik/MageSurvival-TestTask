@@ -1,4 +1,4 @@
-namespace MageSurvivor.Code.Abilities
+namespace MageSurvivor.Code.Projectile
 {
     //этот класс нужен для гибкости в абилках, сейчас не используется
     public class GeneralAbilityData

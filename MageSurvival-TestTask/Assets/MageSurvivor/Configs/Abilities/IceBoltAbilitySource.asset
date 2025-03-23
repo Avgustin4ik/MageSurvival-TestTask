@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1389c3d33074297bb9c9d0396cb916b, type: 3}
   m_Name: IceBoltAbilitySource
   m_EditorClassIdentifier: 
+  Data:
+    Damage: 4
+    Range: 1
+    Speed: 44
+    ProjectilePrefab: {fileID: 8173976552483743024, guid: b40c7cdbc5e59d0458e25dfcd6ef5240, type: 3}
